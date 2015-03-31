@@ -67,12 +67,12 @@ namespace Stupide_Vautour
             if (obj == null || !(obj is Player))
                 return false;
             else
-                return num_player == ((Player)obj).getID();
+                return number == ((Player)obj).getID();
         }
 
         public override int GetHashCode()
         {
-            return num_player;
+            return number;
         }
     }
 }
