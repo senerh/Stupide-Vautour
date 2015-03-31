@@ -62,5 +62,17 @@ namespace Stupide_Vautour
                     return "ORANGE";
             }
         }
+        public override bool Equals(Object obj)
+        {
+            if (obj == null || !(obj is Player))
+                return false;
+            else
+                return num_player == ((Player)obj).getID();
+        }
+
+        public override int GetHashCode()
+        {
+            return num_player;
+        }
     }
 }

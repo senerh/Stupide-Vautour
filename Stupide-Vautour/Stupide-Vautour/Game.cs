@@ -11,18 +11,14 @@ namespace Stupide_Vautour
         int nbPlayers;
         Stack stack;
         List<Player> listPlayers;
-        List<Card>[] tabHistory;
+        History history;
         List<Turn> turn;
 
         public Game(List<Player> listPlayers)
         {
             this.nbPlayers = listPlayers.Count;
             stack = new Stack();
-            tabHistory = new List<Card>[nbPlayers];
-            for (int i = 0; i < nbPlayers; i++)
-            {
-                tabHistory[i] = new List<Card>();
-            }
+            history = new History();
 
             this.listPlayers = listPlayers;
             foreach (Player player in listPlayers)
@@ -46,7 +42,7 @@ namespace Stupide_Vautour
                 {
                     Card currentCard = player.play(stack.getCard());
                     turn.Add(new Turn(player, currentCard));
-                    tabHistory[player.getID()].Add(currentCard);
+                    history.add(player, currentCard);
                 }
 
                 //supprime les doublons
@@ -83,9 +79,9 @@ namespace Stupide_Vautour
             }
         }
 
-        public List<Card>[] getHistory()
+        public History getHistory()
         {
-            return tabHistory;
+            return history;
         }
     }
 }
