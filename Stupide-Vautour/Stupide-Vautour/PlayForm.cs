@@ -20,8 +20,8 @@ namespace Stupide_Vautour
         private void PlayForm_Load(object sender, EventArgs e)
         {
             cb_nbPlayer.SelectedItem = "2";
-            cb_ia1.SelectedItem = "Facile"; cb_ia2.SelectedItem = "Facile"; cb_ia3.SelectedItem = "Facile";
-            cb_ia4.SelectedItem = "Facile"; cb_ia5.SelectedItem = "Facile";
+            cb_ia1.Text = "Facile"; cb_ia2.Text = "Facile"; cb_ia3.Text = "Facile";
+            cb_ia4.Text = "Facile"; cb_ia5.Text = "Facile";
             //ListItem li = new ListItem("Facile", "0");
             cb_ia1.Items.Add("Facile"); cb_ia1.Items.Add("Moyen"); cb_ia1.Items.Add("Difficile");
             cb_ia2.Items.Add("Facile"); cb_ia2.Items.Add("Moyen"); cb_ia2.Items.Add("Difficile");

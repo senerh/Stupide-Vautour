@@ -54,14 +54,14 @@ namespace Stupide_Vautour
 
         public void updateScore(Card card)
         {
-            score = card.getValue();
+            score += card.getValue();
         }
 
         public abstract Card play(Card stack, History history);
 
         public void updateScore(int s)
         {
-            score = score + s;
+            score += s;
         }
 
         public override string ToString()

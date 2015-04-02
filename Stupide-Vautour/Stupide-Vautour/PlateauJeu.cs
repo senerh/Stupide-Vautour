@@ -16,6 +16,8 @@ namespace Stupide_Vautour
         PlayForm playform;
         Game game;
         Card currentCardStack;
+        int currentCardPlayer;
+        int nbtour=0;
 
         public PlateauJeu(PlayForm playform, Game game)
         {
@@ -23,15 +25,19 @@ namespace Stupide_Vautour
             this.game = game;
             this.playform = playform;
             afficheDosPile();
+            afficheDosJoueurs();
+
+            currentCardStack = game.getNextCard();
             for (int round = 1; round <= 15; round++)
             {
-                currentCardStack = game.getNextCard();
+                currentCardPlayer = 0;
+                //currentCardStack = game.getNextCard();
                 DisplayStack();
 
                 
 
             }
-            /*
+            
             int[] main = new int[15];
             int j = 0;
             for (int i = 14; i > 0; i--)
@@ -47,7 +53,9 @@ namespace Stupide_Vautour
             int nbCartesDansMain = SabotHumain.Images.Count;
             afficherMainHumain(main);
             afficheDosPile();
-            afficheDosJoueurs();*/
+            afficheDosJoueurs();
+
+           // game.play();
         }
 
         public void afficheDosPile()
@@ -104,6 +112,173 @@ namespace Stupide_Vautour
         {
             Application.Exit();
         }
+
+        private void PlateauJeu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (game.active)
+            {
+                currentCardPlayer = Convert.ToInt16(pictureBox1.Tag);
+                game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+                pictureBox1.Visible = false;
+            }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            if (game.active)
+            {
+                currentCardPlayer = Convert.ToInt16(pictureBox2.Tag);
+                game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+                pictureBox2.Visible = false;
+            }
+        }
+
+        private void pictureBox3_Click_1(object sender, EventArgs e)
+        {
+            if (game.active)
+            {
+                currentCardPlayer = Convert.ToInt16(pictureBox3.Tag);
+                game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+                pictureBox3.Visible = false;
+            }
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            if (game.active)
+            {
+                currentCardPlayer = Convert.ToInt16(pictureBox4.Tag);
+                game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+                pictureBox4.Visible = false;
+            }
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            if (game.active)
+            {
+                currentCardPlayer = Convert.ToInt16(pictureBox5.Tag);
+                game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+                pictureBox5.Visible = false;
+            }
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            if (game.active)
+            {
+                currentCardPlayer = Convert.ToInt16(pictureBox6.Tag);
+                game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+                pictureBox6.Visible = false;
+            }
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            if (game.active)
+            {
+                currentCardPlayer = Convert.ToInt16(pictureBox7.Tag);
+                game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+                pictureBox7.Visible = false;
+            }
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            if (game.active)
+            {
+                currentCardPlayer = Convert.ToInt16(pictureBox8.Tag);
+                game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+                pictureBox8.Visible = false;
+            }
+        }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+            if (game.active)
+            {
+                currentCardPlayer = Convert.ToInt16(pictureBox9.Tag);
+                game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+                pictureBox9.Visible = false;
+            }
+        }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+            if (game.active)
+            {
+                currentCardPlayer = Convert.ToInt16(pictureBox10.Tag);
+                game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+                pictureBox10.Visible = false;
+            }
+        }
+
+        private void pictureBox11_Click(object sender, EventArgs e)
+        {
+            if (game.active)
+            {
+                currentCardPlayer = Convert.ToInt16(pictureBox11.Tag);
+                game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+                pictureBox11.Visible = false;
+            }
+        }
+
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+            if (game.active)
+            {
+                currentCardPlayer = Convert.ToInt16(pictureBox12.Tag);
+                game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+                pictureBox12.Visible = false;
+            }
+        }
+
+        private void pictureBox13_Click(object sender, EventArgs e)
+        {
+            if (game.active)
+            {
+                currentCardPlayer = Convert.ToInt16(pictureBox13.Tag);
+                game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+                pictureBox13.Visible = false;
+            }
+        }
+
+        private void pictureBox14_Click(object sender, EventArgs e)
+        {
+            if (game.active)
+            {
+                currentCardPlayer = Convert.ToInt16(pictureBox14.Tag);
+                game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+                pictureBox14.Visible = false;
+            }
+        }
+
+        private void pictureBox15_Click(object sender, EventArgs e)
+        {
+            if (game.active)
+            {
+                currentCardPlayer = Convert.ToInt16(pictureBox15.Tag);
+                game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+                pictureBox15.Visible = false;
+            }
+        }
+
+        private void PileGauche_Click(object sender, EventArgs e)
+        {
+            
+            if (nbtour < 14)
+            {
+                   currentCardStack = game.getNextCard();
+                   DisplayStack();
+                   nbtour++;
+            } 
+        }
+
 
 
     }

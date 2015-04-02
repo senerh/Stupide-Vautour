@@ -13,9 +13,11 @@ namespace Stupide_Vautour
         List<Player> listPlayers;
         History history;
         List<Turn> turn;
+        public Boolean active;
 
         public Game(List<String> listPlayers)
         {
+            active = false;
             this.nbPlayers = listPlayers.Count;
             stack = new Stack();
             history = new History();
@@ -54,10 +56,9 @@ namespace Stupide_Vautour
 
         public void play()
         {
-            for (int round = 1; round <= 15; round++)
-            {
-                
 
+
+            active = true;
                 //joue
                 turn.Clear();
                 foreach (Player player in listPlayers)
@@ -66,6 +67,7 @@ namespace Stupide_Vautour
                     turn.Add(new Turn(player, currentCard));
                     history.add(player, currentCard);
                 }
+                active = false;
 
                 //supprime les doublons
                 for (int i = 0; i < nbPlayers; i++)
@@ -98,7 +100,7 @@ namespace Stupide_Vautour
                 {
                     playerMax.updateScore(stack.getCard().number);
                 }
-            }
+            
         }
 
         public History getHistory()
@@ -110,6 +112,10 @@ namespace Stupide_Vautour
             //récupère une carte
             stack.nextCard();
             return stack.getCard();
+        }
+        public HumanPlayer getPlayer()
+        {
+            return (HumanPlayer)listPlayers[0];
         }
     }
 }
