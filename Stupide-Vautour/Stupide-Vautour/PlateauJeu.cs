@@ -31,9 +31,9 @@ namespace Stupide_Vautour
             for (int round = 1; round <= 15; round++)
             {
                 currentCardPlayer = 0;
-                //currentCardStack = game.getNextCard();
+                currentCardStack = game.getNextCard();
                 DisplayStack();
-
+                game.play();
                 
 
             }

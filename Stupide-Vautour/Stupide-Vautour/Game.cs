@@ -58,7 +58,7 @@ namespace Stupide_Vautour
         {
 
 
-            active = true;
+                active = true;
                 //joue
                 turn.Clear();
                 foreach (Player player in listPlayers)
