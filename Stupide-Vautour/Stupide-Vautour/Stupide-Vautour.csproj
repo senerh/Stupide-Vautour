@@ -46,6 +46,8 @@
   <ItemGroup>
     <Compile Include="Card.cs" />
     <Compile Include="History.cs" />
+    <Compile Include="HumanPlayer.cs" />
+    <Compile Include="MediumPlayer.cs" />
     <Compile Include="MenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,7 +70,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SmartPlayer.cs" />
     <Compile Include="Stack.cs" />
+    <Compile Include="StupidPlayer.cs" />
     <Compile Include="Turn.cs" />
     <EmbeddedResource Include="MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>

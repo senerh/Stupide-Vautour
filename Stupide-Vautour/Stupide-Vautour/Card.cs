@@ -8,14 +8,17 @@ namespace Stupide_Vautour
 {
     class Card
     {
-        public int number
-        {
-            get { return number; }
-            set { number = value; }
-        }
+        private int number;
+
         public Card(int number)
         {
             this.number = number;
         }
+
+        public int getValue()
+        {
+            return number;
+        }
     }
+
 }

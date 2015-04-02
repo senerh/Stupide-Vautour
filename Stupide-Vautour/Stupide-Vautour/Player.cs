@@ -9,13 +9,12 @@ namespace Stupide_Vautour
     abstract class Player
     {
         private static int PlayerID = 0;
-        const int NB_CARD = 15;
+        public const int NB_CARD = 15;
 
-        int number;
-        String name;
-        List<Card> listCard;
-        int score;
-        Game game;
+        private int number;
+        private String name;
+        protected List<Card> listCard;
+        private int score;
 
         public Player()
         {
@@ -27,6 +26,25 @@ namespace Stupide_Vautour
                 listCard.Add(new Card(i + 1));
             }
             score = 0;
+
+            switch (number)
+            {
+                case 1:
+                    name = "ROUGE";
+                    break;
+                case 2:
+                    name = "BLEU";
+                    break;
+                case 3:
+                    name = "VERT";
+                    break;
+                case 4:
+                    name = "JAUNE";
+                    break;
+                default:
+                    name = "ORANGE";
+                    break;
+            }
         }
 
         public int getID()
@@ -34,33 +52,21 @@ namespace Stupide_Vautour
             return number;
         }
 
-        public abstract Card play(Card stack);
-
-        public void setGame(Game g)
+        public void updateScore(Card card)
         {
-            game = g;
+            score = card.getValue();
         }
 
-        public void addScore(int s)
+        public abstract Card play(Card stack, History history);
+
+        public void updateScore(int s)
         {
             score = score + s;
         }
 
         public override string ToString()
         {
-            switch (number)
-            {
-                case 1:
-                    return "ROUGE";
-                case 2:
-                    return "BLEU";
-                case 3:
-                    return "VERT";
-                case 4:
-                    return "JAUNE";
-                default:
-                    return "ORANGE";
-            }
+            return name;
         }
         public override bool Equals(Object obj)
         {
