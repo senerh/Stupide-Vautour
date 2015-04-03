@@ -92,7 +92,7 @@ namespace Stupide_Vautour
                     list_player.Add(cb_ia2.Text); list_player.Add(cb_ia3.Text);list_player.Add(cb_ia4.Text); list_player.Add(cb_ia5.Text);
                     break;
             }
-            plateauJeu = new PlateauJeu(this, new Game(list_player));
+            plateauJeu = new PlateauJeu(this, list_player);
             plateauJeu.Visible = true;
         }
 

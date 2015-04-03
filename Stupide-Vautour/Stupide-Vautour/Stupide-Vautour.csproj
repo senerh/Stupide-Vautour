@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Card.cs" />
+    <Compile Include="Display.cs" />
     <Compile Include="History.cs" />
     <Compile Include="HumanPlayer.cs" />
     <Compile Include="MediumPlayer.cs" />

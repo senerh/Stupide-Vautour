@@ -13,18 +13,18 @@ namespace Stupide_Vautour
         List<Player> listPlayers;
         History history;
         List<Turn> turn;
-        public Boolean active;
+        Display display;
 
-        public Game(List<String> listPlayers)
+        public Game(List<String> listPlayers, Display d)
         {
-            active = false;
             this.nbPlayers = listPlayers.Count;
             stack = new Stack();
             history = new History();
             this.listPlayers = new List<Player>();
             this.listPlayers.Add(new HumanPlayer());
+            display = d;
 
-            foreach(String player in listPlayers)
+            foreach (String player in listPlayers)
             {
                 switch (player)
                 {
@@ -43,8 +43,9 @@ namespace Stupide_Vautour
             turn = new List<Turn>();
         }
 
-        public Game(List<Player> listPlayers)
+        public Game(List<Player> listPlayers, Display d)
         {
+            display = d;
             this.nbPlayers = listPlayers.Count;
             stack = new Stack();
             history = new History();
@@ -56,51 +57,56 @@ namespace Stupide_Vautour
 
         public void play()
         {
+            for (int i = 0; i < 15; i++ )
+            {
+                stack.nextCard();
+                display.DisplayStack(stack);
+                System.Threading.Thread.Sleep(1000);
+            }
+            /*
+            active = true;
+            //joue
+            turn.Clear();
+            foreach (Player player in listPlayers)
+            {
+                Card currentCard = player.play(stack.getCard(), history);
+                turn.Add(new Turn(player, currentCard));
+                history.add(player, currentCard);
+            }
+            active = false;
 
-
-                active = true;
-                //joue
-                turn.Clear();
-                foreach (Player player in listPlayers)
+            //supprime les doublons
+            for (int i = 0; i < nbPlayers; i++)
+            {
+                for (int j = i + 1; j < nbPlayers; j++)
                 {
-                    Card currentCard = player.play(stack.getCard(), history);
-                    turn.Add(new Turn(player, currentCard));
-                    history.add(player, currentCard);
-                }
-                active = false;
-
-                //supprime les doublons
-                for (int i = 0; i < nbPlayers; i++)
-                {
-                    for (int j = i + 1; j < nbPlayers; j++)
+                    if (turn.ElementAt(i).getCard().number == turn.ElementAt(j).getCard().number)
                     {
-                        if (turn.ElementAt(i).getCard().number == turn.ElementAt(j).getCard().number)
-                        {
-                            turn.ElementAt(i).getCard().number = 0;
-                            turn.ElementAt(j).getCard().number = 0;
-                        }
+                        turn.ElementAt(i).getCard().number = 0;
+                        turn.ElementAt(j).getCard().number = 0;
                     }
                 }
+            }
 
-                //cherche le joueur qui a joué le max
-                int max = turn.ElementAt(0).getCard().number;
-                Player playerMax = turn.ElementAt(0).getPlayer();
+            //cherche le joueur qui a joué le max
+            int max = turn.ElementAt(0).getCard().number;
+            Player playerMax = turn.ElementAt(0).getPlayer();
 
-                for (int i = 1; i < nbPlayers; i++)
+            for (int i = 1; i < nbPlayers; i++)
+            {
+                if (max < turn.ElementAt(i).getCard().number)
                 {
-                    if (max < turn.ElementAt(i).getCard().number)
-                    {
-                        max = turn.ElementAt(i).getCard().number;
-                        playerMax = turn.ElementAt(i).getPlayer();
-                    }
+                    max = turn.ElementAt(i).getCard().number;
+                    playerMax = turn.ElementAt(i).getPlayer();
                 }
+            }
 
-                //Il y a un gagnant
-                if (max != 0)
-                {
-                    playerMax.updateScore(stack.getCard().number);
-                }
-            
+            //Il y a un gagnant
+            if (max != 0)
+            {
+                playerMax.updateScore(stack.getCard().number);
+            }*/
+
         }
 
         public History getHistory()

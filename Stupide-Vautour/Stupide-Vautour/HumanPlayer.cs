@@ -8,24 +8,24 @@ namespace Stupide_Vautour
 {
     public class HumanPlayer : Player
     {
-        int currentCardPlayer;
-        public HumanPlayer()
-            : base()
+        bool isSelected;
+        int selectedCard;
+        public HumanPlayer() : base()
         {
-            currentCardPlayer = 0;
+            isSelected = false;
         }
         public override Card play(Card stack, History history)
         {
-            //throw new NotImplementedException();
-            while (currentCardPlayer == 0) { };
-            Card cartplayed=base.listCard[currentCardPlayer];
-            currentCardPlayer = 0;
-            return cartplayed;
+            while (!isSelected)
+                ;
+            isSelected = false;
+            return base.listCard.ElementAt(selectedCard);
         }
 
-        public void setCurrentCardPlayer(int n)
+        public void selectCard(int n)
         {
-            this.currentCardPlayer = n;
+            isSelected = true;
+            selectedCard = n;
         }
     }
 }
