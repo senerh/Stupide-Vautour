@@ -79,6 +79,7 @@ namespace Stupide_Vautour
         {
             this.Visible = false;
             plateauJeu.Visible = true;
+
         }
 
 
