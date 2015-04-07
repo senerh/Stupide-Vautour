@@ -13,6 +13,7 @@ namespace Stupide_Vautour
     public partial class MenuForm : Form
     {
         PlayForm playform;
+        PlateauJeu plateauJeu;
         public MenuForm()
         {
             InitializeComponent();

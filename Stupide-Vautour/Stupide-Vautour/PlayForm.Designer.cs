@@ -48,7 +48,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(383, 112);
+            this.label1.Location = new System.Drawing.Point(142, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 13);
             this.label1.TabIndex = 0;
@@ -57,16 +57,17 @@
             // button1
             // 
             this.button1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button1.Location = new System.Drawing.Point(389, 441);
+            this.button1.Location = new System.Drawing.Point(148, 351);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 32);
             this.button1.TabIndex = 5;
             this.button1.Text = "Let\'s Go !";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(369, 524);
+            this.button2.Location = new System.Drawing.Point(128, 434);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(137, 23);
             this.button2.TabIndex = 6;
@@ -82,7 +83,7 @@
             "3",
             "4",
             "5"});
-            this.cb_nbPlayer.Location = new System.Drawing.Point(369, 143);
+            this.cb_nbPlayer.Location = new System.Drawing.Point(128, 53);
             this.cb_nbPlayer.Name = "cb_nbPlayer";
             this.cb_nbPlayer.Size = new System.Drawing.Size(121, 21);
             this.cb_nbPlayer.TabIndex = 7;
@@ -91,7 +92,7 @@
             // cb_ia2
             // 
             this.cb_ia2.FormattingEnabled = true;
-            this.cb_ia2.Location = new System.Drawing.Point(280, 245);
+            this.cb_ia2.Location = new System.Drawing.Point(39, 155);
             this.cb_ia2.Name = "cb_ia2";
             this.cb_ia2.Size = new System.Drawing.Size(121, 21);
             this.cb_ia2.TabIndex = 8;
@@ -99,7 +100,7 @@
             // cb_ia3
             // 
             this.cb_ia3.FormattingEnabled = true;
-            this.cb_ia3.Location = new System.Drawing.Point(453, 245);
+            this.cb_ia3.Location = new System.Drawing.Point(212, 155);
             this.cb_ia3.Name = "cb_ia3";
             this.cb_ia3.Size = new System.Drawing.Size(121, 21);
             this.cb_ia3.TabIndex = 9;
@@ -107,7 +108,7 @@
             // cb_ia1
             // 
             this.cb_ia1.FormattingEnabled = true;
-            this.cb_ia1.Location = new System.Drawing.Point(369, 305);
+            this.cb_ia1.Location = new System.Drawing.Point(128, 215);
             this.cb_ia1.Name = "cb_ia1";
             this.cb_ia1.Size = new System.Drawing.Size(121, 21);
             this.cb_ia1.TabIndex = 10;
@@ -115,7 +116,7 @@
             // cb_ia4
             // 
             this.cb_ia4.FormattingEnabled = true;
-            this.cb_ia4.Location = new System.Drawing.Point(280, 372);
+            this.cb_ia4.Location = new System.Drawing.Point(39, 282);
             this.cb_ia4.Name = "cb_ia4";
             this.cb_ia4.Size = new System.Drawing.Size(121, 21);
             this.cb_ia4.TabIndex = 11;
@@ -123,7 +124,7 @@
             // cb_ia5
             // 
             this.cb_ia5.FormattingEnabled = true;
-            this.cb_ia5.Location = new System.Drawing.Point(453, 372);
+            this.cb_ia5.Location = new System.Drawing.Point(212, 282);
             this.cb_ia5.Name = "cb_ia5";
             this.cb_ia5.Size = new System.Drawing.Size(121, 21);
             this.cb_ia5.TabIndex = 12;
@@ -131,7 +132,7 @@
             // label_ia2
             // 
             this.label_ia2.AutoSize = true;
-            this.label_ia2.Location = new System.Drawing.Point(319, 229);
+            this.label_ia2.Location = new System.Drawing.Point(78, 139);
             this.label_ia2.Name = "label_ia2";
             this.label_ia2.Size = new System.Drawing.Size(35, 13);
             this.label_ia2.TabIndex = 13;
@@ -140,7 +141,7 @@
             // label_ia3
             // 
             this.label_ia3.AutoSize = true;
-            this.label_ia3.Location = new System.Drawing.Point(497, 229);
+            this.label_ia3.Location = new System.Drawing.Point(256, 139);
             this.label_ia3.Name = "label_ia3";
             this.label_ia3.Size = new System.Drawing.Size(35, 13);
             this.label_ia3.TabIndex = 14;
@@ -149,7 +150,7 @@
             // label_ia1
             // 
             this.label_ia1.AutoSize = true;
-            this.label_ia1.Location = new System.Drawing.Point(412, 289);
+            this.label_ia1.Location = new System.Drawing.Point(171, 199);
             this.label_ia1.Name = "label_ia1";
             this.label_ia1.Size = new System.Drawing.Size(35, 13);
             this.label_ia1.TabIndex = 15;
@@ -158,7 +159,7 @@
             // label_ia4
             // 
             this.label_ia4.AutoSize = true;
-            this.label_ia4.Location = new System.Drawing.Point(319, 356);
+            this.label_ia4.Location = new System.Drawing.Point(78, 266);
             this.label_ia4.Name = "label_ia4";
             this.label_ia4.Size = new System.Drawing.Size(35, 13);
             this.label_ia4.TabIndex = 16;
@@ -167,7 +168,7 @@
             // label_ia5
             // 
             this.label_ia5.AutoSize = true;
-            this.label_ia5.Location = new System.Drawing.Point(497, 356);
+            this.label_ia5.Location = new System.Drawing.Point(256, 266);
             this.label_ia5.Name = "label_ia5";
             this.label_ia5.Size = new System.Drawing.Size(35, 13);
             this.label_ia5.TabIndex = 17;
@@ -177,7 +178,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 761);
+            this.ClientSize = new System.Drawing.Size(373, 489);
             this.Controls.Add(this.label_ia5);
             this.Controls.Add(this.label_ia4);
             this.Controls.Add(this.label_ia1);
@@ -194,6 +195,7 @@
             this.Controls.Add(this.label1);
             this.Location = new System.Drawing.Point(100, 100);
             this.Name = "PlayForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PlayForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PlayForm_FormClosing);
             this.Load += new System.EventHandler(this.PlayForm_Load);

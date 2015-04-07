@@ -8,11 +8,13 @@ namespace Stupide_Vautour
     public partial class PlayForm : Form
     {
         MenuForm menuform;
+        PlateauJeu plateauJeu;
         int nb_player;
         public PlayForm(MenuForm menuform)
         {
             InitializeComponent();
             this.menuform = menuform;
+            plateauJeu = new PlateauJeu(this);
             
             
         }
@@ -71,6 +73,12 @@ namespace Stupide_Vautour
                     label_ia1.Visible = false; label_ia2.Visible = true; label_ia3.Visible = true; label_ia4.Visible = true; label_ia5.Visible = true;
                     break;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            plateauJeu.Visible = true;
         }
 
 

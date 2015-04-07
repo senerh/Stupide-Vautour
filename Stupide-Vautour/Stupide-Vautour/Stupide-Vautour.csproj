@@ -53,6 +53,12 @@
       <DependentUpon>MenuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Game.cs" />
+    <Compile Include="PlateauJeu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlateauJeu.Designer.cs">
+      <DependentUpon>PlateauJeu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="PlayForm.cs">
       <SubType>Form</SubType>
@@ -66,6 +72,9 @@
     <Compile Include="Turn.cs" />
     <EmbeddedResource Include="MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlateauJeu.resx">
+      <DependentUpon>PlateauJeu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PlayForm.resx">
       <DependentUpon>PlayForm.cs</DependentUpon>
