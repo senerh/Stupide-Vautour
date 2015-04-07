@@ -8,7 +8,7 @@ namespace Stupide_Vautour
 {
     class Card
     {
-        private int number;
+        public int number;
 
         public Card(int number)
         {

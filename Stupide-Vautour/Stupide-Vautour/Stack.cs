@@ -37,11 +37,11 @@ namespace Stupide_Vautour
         }
         public bool isMouse()
         {
-            return currentCard.number > 0;
+            return currentCard.getValue() > 0;
         }
         public bool isVulture()
         {
-            return currentCard.number < 0;
+            return currentCard.getValue() < 0;
         }
     }
 }

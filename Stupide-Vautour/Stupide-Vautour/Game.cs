@@ -21,10 +21,6 @@ namespace Stupide_Vautour
             history = new History();
 
             this.listPlayers = listPlayers;
-            foreach (Player player in listPlayers)
-            {
-                player.setGame(this);
-            }
 
             turn = new List<Turn>();
         }
@@ -40,7 +36,7 @@ namespace Stupide_Vautour
                 turn.Clear();
                 foreach (Player player in listPlayers)
                 {
-                    Card currentCard = player.play(stack.getCard());
+                    Card currentCard = player.play(stack.getCard(), history);
                     turn.Add(new Turn(player, currentCard));
                     history.add(player, currentCard);
                 }
@@ -74,7 +70,7 @@ namespace Stupide_Vautour
                 //Il y a un gagnant
                 if (max != 0)
                 {
-                    playerMax.addScore(stack.getCard().number);
+                    playerMax.updateScore(stack.getCard().number);
                 }
             }
         }
