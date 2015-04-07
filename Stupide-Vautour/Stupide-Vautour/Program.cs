@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Stupide_Vautour
 {
-    static class Program
+    public static class Program
     {
         /// <summary>
         /// Point d'entrée principal de l'application.

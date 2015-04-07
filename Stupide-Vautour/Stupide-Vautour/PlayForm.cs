@@ -2,6 +2,7 @@
 using System;
 using System.Windows.Forms;
 using System.Web;
+using System.Collections.Generic;
 
 namespace Stupide_Vautour
 {
@@ -14,9 +15,6 @@ namespace Stupide_Vautour
         {
             InitializeComponent();
             this.menuform = menuform;
-            plateauJeu = new PlateauJeu(this);
-            
-            
         }
 
         private void PlayForm_Load(object sender, EventArgs e)
@@ -78,8 +76,24 @@ namespace Stupide_Vautour
         private void button1_Click(object sender, EventArgs e)
         {
             this.Visible = false;
+            List<String> list_player = new List<string>();
+            switch (nb_player)
+            {
+                case 2:
+                    list_player.Add(cb_ia1.Text);
+                    break;
+                case 3:
+                    list_player.Add(cb_ia2.Text); list_player.Add(cb_ia3.Text);
+                    break;
+                case 4:
+                    list_player.Add(cb_ia1.Text); list_player.Add(cb_ia2.Text); list_player.Add(cb_ia3.Text);
+                    break;
+                case 5:
+                    list_player.Add(cb_ia2.Text); list_player.Add(cb_ia3.Text);list_player.Add(cb_ia4.Text); list_player.Add(cb_ia5.Text);
+                    break;
+            }
+            plateauJeu = new PlateauJeu(this, new Game(list_player));
             plateauJeu.Visible = true;
-
         }
 
 

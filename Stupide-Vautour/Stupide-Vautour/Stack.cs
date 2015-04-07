@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Stupide_Vautour
 {
-    class Stack
+    public class Stack
     {
         List<Card> listCard;
         Card currentCard;

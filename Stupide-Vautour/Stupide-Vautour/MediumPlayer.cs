@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Stupide_Vautour
 {
-    class MediumPlayer : Player
+    public class MediumPlayer : Player
     {
         public MediumPlayer()
             : base()

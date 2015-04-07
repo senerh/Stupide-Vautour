@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,10 +14,24 @@ namespace Stupide_Vautour
     public partial class PlateauJeu : Form
     {
         PlayForm playform;
-        public PlateauJeu(PlayForm playform)
+        Game game;
+        Card currentCardStack;
+
+        public PlateauJeu(PlayForm playform, Game game)
         {
             InitializeComponent();
+            this.game = game;
             this.playform = playform;
+            afficheDosPile();
+            for (int round = 1; round <= 15; round++)
+            {
+                currentCardStack = game.getNextCard();
+                DisplayStack();
+
+                
+
+            }
+            /*
             int[] main = new int[15];
             int j = 0;
             for (int i = 14; i > 0; i--)
@@ -32,7 +47,7 @@ namespace Stupide_Vautour
             int nbCartesDansMain = SabotHumain.Images.Count;
             afficherMainHumain(main);
             afficheDosPile();
-            afficheDosJoueurs();
+            afficheDosJoueurs();*/
         }
 
         public void afficheDosPile()
@@ -70,11 +85,24 @@ namespace Stupide_Vautour
             }
         }
 
-        private void PileGauche_Click(object sender, EventArgs e)
+        private void DisplayStack()
         {
             PictureBox carte;
             carte = (PictureBox)TapisPile.Controls[0];//1 pour pile de gauche. 0 pour droite
-            carte.Image = SabotPile.Images[1];
+            if (currentCardStack.number < 0)
+            {
+                carte.Image = SabotPile.Images[(this.currentCardStack.number)*(-1)+10];
+            }
+            else
+            {
+                carte.Image = SabotPile.Images[(this.currentCardStack.number)];
+            }
+            
+        }
+
+        private void PlateauJeu_Closing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
 
 

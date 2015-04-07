@@ -342,7 +342,6 @@
             this.PileGauche.Size = new System.Drawing.Size(80, 94);
             this.PileGauche.TabIndex = 15;
             this.PileGauche.TabStop = false;
-            this.PileGauche.Click += new System.EventHandler(this.PileGauche_Click);
             // 
             // TapisHumain
             // 
@@ -516,6 +515,7 @@
             this.Name = "PlateauJeu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PlateauJeu";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PlateauJeu_Closing);
             this.TapisIA4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNoire)).EndInit();
             this.TapisIA3.ResumeLayout(false);

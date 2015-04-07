@@ -6,13 +6,40 @@ using System.Threading.Tasks;
 
 namespace Stupide_Vautour
 {
-    class Game
+    public class Game
     {
         int nbPlayers;
         Stack stack;
         List<Player> listPlayers;
         History history;
         List<Turn> turn;
+
+        public Game(List<String> listPlayers)
+        {
+            this.nbPlayers = listPlayers.Count;
+            stack = new Stack();
+            history = new History();
+            this.listPlayers = new List<Player>();
+            this.listPlayers.Add(new HumanPlayer());
+
+            foreach(String player in listPlayers)
+            {
+                switch (player)
+                {
+                    case "Facile":
+                        this.listPlayers.Add(new StupidPlayer());
+                        break;
+                    case "Moyen":
+                        this.listPlayers.Add(new MediumPlayer());
+                        break;
+                    default:
+                        this.listPlayers.Add(new SmartPlayer());
+                        break;
+                }
+            }
+
+            turn = new List<Turn>();
+        }
 
         public Game(List<Player> listPlayers)
         {
@@ -29,8 +56,7 @@ namespace Stupide_Vautour
         {
             for (int round = 1; round <= 15; round++)
             {
-                //récupère une carte
-                stack.nextCard();
+                
 
                 //joue
                 turn.Clear();
@@ -78,6 +104,12 @@ namespace Stupide_Vautour
         public History getHistory()
         {
             return history;
+        }
+        public Card getNextCard()
+        {
+            //récupère une carte
+            stack.nextCard();
+            return stack.getCard();
         }
     }
 }

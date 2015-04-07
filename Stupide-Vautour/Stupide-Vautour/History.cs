@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Stupide_Vautour
 {
-    class History
+    public class History
     {
         private Dictionary<Player, List<Card>> history;
         private List<Player> listPlayer;

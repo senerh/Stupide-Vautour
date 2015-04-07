@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Stupide_Vautour
 {
-    abstract class Player
+    public abstract class Player
     {
         private static int PlayerID = 0;
         public const int NB_CARD = 15;

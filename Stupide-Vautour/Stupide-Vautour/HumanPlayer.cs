@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Stupide_Vautour
 {
-    class HumanPlayer : Player
+    public class HumanPlayer : Player
     {
         public HumanPlayer()
             : base()
