@@ -16,20 +16,37 @@ namespace Stupide_Vautour
         PlayForm playform;
         Game game;
         Thread play;
+        HumanPlayer human;
 
-        public PlateauJeu(PlayForm playform, List<String> listPlayer)
+        public PlateauJeu(PlayForm playform, List<String> listPlayers)
         {
             InitializeComponent();
-            game = new Game(listPlayer, this);
             this.playform = playform;
+
+            List<Player> listPlayer = new List<Player>();
+            human = new HumanPlayer();
+            listPlayer.Add(human);
+            foreach (String player in listPlayers)
+            {
+                switch (player)
+                {
+                    case "Facile":
+                        listPlayer.Add(new StupidPlayer());
+                        break;
+                    case "Moyen":
+                        listPlayer.Add(new MediumPlayer());
+                        break;
+                    default:
+                        listPlayer.Add(new SmartPlayer());
+                        break;
+                }
+            }
+
+            game = new Game(listPlayer, this);
+            play = new Thread(game.play);
+
             afficheDosPile();
             afficheDosJoueurs();
-
-            play = new Thread(game.play);
-            play.Start();
-
-
-
 
             int[] main = new int[15];
             int j = 0;
@@ -48,7 +65,7 @@ namespace Stupide_Vautour
             afficheDosPile();
             afficheDosJoueurs();
 
-            // game.play();
+            play.Start();
         }
 
         public void afficheDosPile()
@@ -113,106 +130,91 @@ namespace Stupide_Vautour
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            currentCardPlayer = Convert.ToInt16(pictureBox1.Tag);
-            game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+            human.selectCard(Convert.ToInt16(pictureBox1.Tag));
             pictureBox1.Visible = false;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            currentCardPlayer = Convert.ToInt16(pictureBox2.Tag);
-            game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+            human.selectCard(Convert.ToInt16(pictureBox2.Tag));
             pictureBox2.Visible = false;
         }
 
         private void pictureBox3_Click_1(object sender, EventArgs e)
         {
-            currentCardPlayer = Convert.ToInt16(pictureBox3.Tag);
-            game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+            human.selectCard(Convert.ToInt16(pictureBox3.Tag));
             pictureBox3.Visible = false;
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            currentCardPlayer = Convert.ToInt16(pictureBox4.Tag);
-            game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+            human.selectCard(Convert.ToInt16(pictureBox4.Tag));
             pictureBox4.Visible = false;
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            currentCardPlayer = Convert.ToInt16(pictureBox5.Tag);
-            game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+            human.selectCard(Convert.ToInt16(pictureBox5.Tag));
             pictureBox5.Visible = false;
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            currentCardPlayer = Convert.ToInt16(pictureBox6.Tag);
-            game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+            human.selectCard(Convert.ToInt16(pictureBox6.Tag));
             pictureBox6.Visible = false;
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-            currentCardPlayer = Convert.ToInt16(pictureBox7.Tag);
-            game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+            human.selectCard(Convert.ToInt16(pictureBox7.Tag));
             pictureBox7.Visible = false;
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
-            currentCardPlayer = Convert.ToInt16(pictureBox8.Tag);
-            game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+            human.selectCard(Convert.ToInt16(pictureBox8.Tag));
             pictureBox8.Visible = false;
         }
 
         private void pictureBox9_Click(object sender, EventArgs e)
         {
-            currentCardPlayer = Convert.ToInt16(pictureBox9.Tag);
-            game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+            human.selectCard(Convert.ToInt16(pictureBox9.Tag));
             pictureBox9.Visible = false;
         }
 
         private void pictureBox10_Click(object sender, EventArgs e)
         {
-            currentCardPlayer = Convert.ToInt16(pictureBox10.Tag);
-            game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+            human.selectCard(Convert.ToInt16(pictureBox10.Tag));
             pictureBox10.Visible = false;
         }
 
         private void pictureBox11_Click(object sender, EventArgs e)
         {
-            currentCardPlayer = Convert.ToInt16(pictureBox11.Tag);
-            game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+            human.selectCard(Convert.ToInt16(pictureBox11.Tag));
             pictureBox11.Visible = false;
         }
 
         private void pictureBox12_Click(object sender, EventArgs e)
         {
-            currentCardPlayer = Convert.ToInt16(pictureBox12.Tag);
-            game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+            human.selectCard(Convert.ToInt16(pictureBox12.Tag));
             pictureBox12.Visible = false;
         }
 
         private void pictureBox13_Click(object sender, EventArgs e)
         {
-            currentCardPlayer = Convert.ToInt16(pictureBox13.Tag);
-            game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+            human.selectCard(Convert.ToInt16(pictureBox13.Tag));
             pictureBox13.Visible = false;
         }
 
         private void pictureBox14_Click(object sender, EventArgs e)
         {
-            currentCardPlayer = Convert.ToInt16(pictureBox14.Tag);
-            game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+            human.selectCard(Convert.ToInt16(pictureBox14.Tag));
             pictureBox14.Visible = false;
         }
 
         private void pictureBox15_Click(object sender, EventArgs e)
         {
-            currentCardPlayer = Convert.ToInt16(pictureBox15.Tag);
-            game.getPlayer().setCurrentCardPlayer(currentCardPlayer);
+            human.selectCard(Convert.ToInt16(pictureBox15.Tag));
             pictureBox15.Visible = false;
         }
 

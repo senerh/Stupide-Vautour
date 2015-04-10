@@ -9,8 +9,9 @@ namespace Stupide_Vautour
     public class HumanPlayer : Player
     {
         bool isSelected;
-        int selectedCard;
-        public HumanPlayer() : base()
+        Card selectedCard;
+        public HumanPlayer()
+            : base()
         {
             isSelected = false;
         }
@@ -19,13 +20,13 @@ namespace Stupide_Vautour
             while (!isSelected)
                 ;
             isSelected = false;
-            return base.listCard.ElementAt(selectedCard);
+            return base.listCard.Find(selectedCard.Equals);
         }
 
         public void selectCard(int n)
         {
+            selectedCard = new Card(n);
             isSelected = true;
-            selectedCard = n;
         }
     }
 }
