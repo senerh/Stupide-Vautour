@@ -12,7 +12,7 @@ namespace Stupide_Vautour
         Stack stack;
         List<Player> listPlayers;
         History history;
-        List<Turn> turn;
+        Dictionary<Player, Card> lastTurn;
         Display display;
 
         public Game(List<Player> listPlayers, Display d)
@@ -22,62 +22,56 @@ namespace Stupide_Vautour
             nbPlayers = listPlayers.Count;
             stack = new Stack();
             history = new History();
-            turn = new List<Turn>();
+            lastTurn = new Dictionary<Player,Card>();
         }
 
         public void play()
         {
-            /*
-            for (int i = 0; i < 15; i++)
-            {
-                stack.nextCard();
-                display.DisplayStack(stack);
-                System.Threading.Thread.Sleep(1000);
-            }*/
-
             for (int round = 0; round < 15; round++)
             {
                 stack.nextCard();
-                display.DisplayStack(stack);
+                display.displayStack(stack);
+
                 //joue
-                turn.Clear();
+                lastTurn.Clear();
                 foreach (Player player in listPlayers)
                 {
                     Card currentCard = player.play(stack.getCard(), history);
-                    turn.Add(new Turn(player, currentCard));
+                    lastTurn.Add(player, currentCard);
                     history.add(player, currentCard);
+                }
+                for (int i = 0; i < lastTurn.Count; i++)
+                {
+                    display.displayPlayer(lastTurn.ElementAt(i));
                 }
 
                 //supprime les doublons
-                for (int i = 0; i < nbPlayers; i++)
+                for (int i = 0; i < lastTurn.Count; i++)
                 {
-                    for (int j = i + 1; j < nbPlayers; j++)
+                    for (int j = i + 1; j < lastTurn.Count; j++)
                     {
-                        if (turn.ElementAt(i).getCard().number == turn.ElementAt(j).getCard().number)
+                        if (lastTurn.ElementAt(i).Value.number == lastTurn.ElementAt(j).Value.number)
                         {
-                            turn.ElementAt(i).getCard().number = 0;
-                            turn.ElementAt(j).getCard().number = 0;
+                            lastTurn.ElementAt(i).Value.number = 0;
+                            lastTurn.ElementAt(j).Value.number = 0;
                         }
                     }
                 }
 
                 //cherche le joueur qui a joué le max
-                int max = turn.ElementAt(0).getCard().number;
-                Player playerMax = turn.ElementAt(0).getPlayer();
-
-                for (int i = 1; i < nbPlayers; i++)
+                KeyValuePair<Player, Card> max = lastTurn.ElementAt(0);
+                for (int i = 1; i < lastTurn.Count; i++)
                 {
-                    if (max < turn.ElementAt(i).getCard().number)
+                    if (max.Value.number < lastTurn.ElementAt(i).Value.number)
                     {
-                        max = turn.ElementAt(i).getCard().number;
-                        playerMax = turn.ElementAt(i).getPlayer();
+                        max = lastTurn.ElementAt(i);
                     }
                 }
 
                 //Il y a un gagnant
-                if (max != 0)
+                if (max.Value.number != 0)
                 {
-                    playerMax.updateScore(stack.getCard().number);
+                    max.Key.updateScore(stack.getCard().number);
                 }
             }
         }

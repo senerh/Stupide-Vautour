@@ -50,5 +50,10 @@ namespace Stupide_Vautour
         {
             return history;
         }
+
+        public void clear()
+        {
+            history.Clear();
+        }
     }
 }

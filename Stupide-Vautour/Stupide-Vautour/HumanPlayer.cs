@@ -18,7 +18,9 @@ namespace Stupide_Vautour
         public override Card play(Card stack, History history)
         {
             while (!isSelected)
-                ;
+            {
+                System.Threading.Thread.Sleep(100);
+            }
             isSelected = false;
             return base.listCard.Find(selectedCard.Equals);
         }

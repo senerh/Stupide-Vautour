@@ -8,6 +8,8 @@ namespace Stupide_Vautour
 {
     public interface Display
     {
-        void DisplayStack(Stack stack);
+        void displayStack(Stack stack);
+
+        void displayPlayer(KeyValuePair<Player, Card> couple);
     }
 }

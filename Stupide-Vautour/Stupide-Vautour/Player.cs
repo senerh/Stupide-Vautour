@@ -66,7 +66,7 @@ namespace Stupide_Vautour
 
         public override string ToString()
         {
-            return name;
+            return number+":"+name;
         }
         public override bool Equals(Object obj)
         {

@@ -45,18 +45,26 @@ namespace Stupide_Vautour
             game = new Game(listPlayer, this);
             play = new Thread(game.play);
 
-            afficheDosPile();
-            afficheDosJoueurs();
-
-            int[] pile = new int[15];
-            for (int i = 0; i < 15; i++)
+            switch (listPlayer.Count)
             {
-                pile[i] = i;
+                case 4:
+                    TapisIA4.Visible = false;
+                    break;
+                case 3:
+                    TapisIA3.Visible = false;
+                    TapisIA4.Visible = false;
+                    break;
+                case 2:
+                    TapisIA2.Visible = false;
+                    TapisIA3.Visible = false;
+                    TapisIA4.Visible = false;
+                    break;
+                default:
+                    break;
             }
-            int nbCartesDansMain = SabotHumain.Images.Count;
+
             afficherMainHumain();
             afficheDosPile();
-            afficheDosJoueurs();
 
             play.Start();
         }
@@ -67,23 +75,6 @@ namespace Stupide_Vautour
             carte = (PictureBox)TapisPile.Controls[1];//1 pour pile de gauche. 0 pour droite
             carte.Image = SabotPile.Images[0];
         }
-
-        public void afficheDosJoueurs()
-        {
-            PictureBox carte;
-            carte = (PictureBox)TapisIA1.Controls[0];
-            carte.Image = SabotIA1.Images[0];
-            PictureBox carte2;
-            carte2 = (PictureBox)TapisIA2.Controls[0];
-            carte2.Image = SabotIA2.Images[0];
-            PictureBox carte3;
-            carte3 = (PictureBox)TapisIA3.Controls[0];
-            carte3.Image = SabotIA3.Images[0];
-            PictureBox carte4;
-            carte4 = (PictureBox)TapisIA4.Controls[0];
-            carte4.Image = SabotIA4.Images[0];
-        }
-
 
         public void afficherMainHumain()
         {
@@ -102,7 +93,7 @@ namespace Stupide_Vautour
             }
         }
 
-        public void DisplayStack(Stack stack)
+        public void displayStack(Stack stack)
         {
             PictureBox carte;
             carte = (PictureBox)TapisPile.Controls[0];//1 pour pile de gauche. 0 pour droite
@@ -114,11 +105,37 @@ namespace Stupide_Vautour
             {
                 carte.Image = SabotPile.Images[(stack.getCard().getValue())];
             }
+        }
 
+        public void displayPlayer(KeyValuePair<Player, Card> couple)
+        {
+            PictureBox carte;
+            switch(couple.Key.getID())
+            {
+                case 2://IA 1
+                    carte = (PictureBox)TapisIA1.Controls[0];
+                    carte.Image = SabotIA1.Images[couple.Value.number - 1];
+                    break;
+                case 3://IA 2
+                    carte = (PictureBox)TapisIA2.Controls[0];
+                    carte.Image = SabotIA2.Images[couple.Value.number - 1];
+                    break;
+                case 4://IA 3
+                    carte = (PictureBox)TapisIA3.Controls[0];
+                    carte.Image = SabotIA3.Images[couple.Value.number - 1];
+                    break;
+                case 5://IA 4
+                    carte = (PictureBox)TapisIA4.Controls[0];
+                    carte.Image = SabotIA4.Images[couple.Value.number - 1];
+                    break;
+                default://Humain
+                    break;
+            }
         }
 
         private void PlateauJeu_Closing(object sender, FormClosingEventArgs e)
         {
+            play.Abort();
             Application.Exit();
         }
 
@@ -129,8 +146,7 @@ namespace Stupide_Vautour
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            int n = Convert.ToInt16(pictureBox1.Tag);
-            human.selectCard(n);
+            human.selectCard(Convert.ToInt16(pictureBox1.Tag));
             pictureBox1.Visible = false;
         }
 
