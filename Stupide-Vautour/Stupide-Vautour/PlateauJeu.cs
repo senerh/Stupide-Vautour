@@ -48,20 +48,13 @@ namespace Stupide_Vautour
             afficheDosPile();
             afficheDosJoueurs();
 
-            int[] main = new int[15];
-            int j = 0;
-            for (int i = 14; i > 0; i--)
-            {
-                main[j] = i;
-                j++;
-            }
             int[] pile = new int[15];
             for (int i = 0; i < 15; i++)
             {
                 pile[i] = i;
             }
             int nbCartesDansMain = SabotHumain.Images.Count;
-            afficherMainHumain(main);
+            afficherMainHumain();
             afficheDosPile();
             afficheDosJoueurs();
 
@@ -92,14 +85,20 @@ namespace Stupide_Vautour
         }
 
 
-        public void afficherMainHumain(int[] main)
+        public void afficherMainHumain()
         {
             PictureBox carte;
-            for (int i_carte = 0; i_carte < main.Length; i_carte++)
+            for (int i = 0; i < TapisHumain.ColumnCount; i++)
             {
-                carte = (PictureBox)TapisHumain.Controls[i_carte];
-                carte.Image = SabotHumain.Images[main[i_carte]];
-                carte.Tag = i_carte + 1;
+                for (int j = 0; j < this.TapisHumain.RowCount; j++)
+                {
+                    carte = (PictureBox)this.TapisHumain.GetControlFromPosition(i, j);
+                    if (carte != null)
+                    {
+                        carte.Image = SabotHumain.Images[8 * j + i];
+                        carte.Tag = 8 * j + i + 1;
+                    }
+                }
             }
         }
 
@@ -130,7 +129,8 @@ namespace Stupide_Vautour
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            human.selectCard(Convert.ToInt16(pictureBox1.Tag));
+            int n = Convert.ToInt16(pictureBox1.Tag);
+            human.selectCard(n);
             pictureBox1.Visible = false;
         }
 
@@ -221,6 +221,11 @@ namespace Stupide_Vautour
         private void PileGauche_Click(object sender, EventArgs e)
         {
             throw new NotImplementedException();
+        }
+
+        private void TapisHumain_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
