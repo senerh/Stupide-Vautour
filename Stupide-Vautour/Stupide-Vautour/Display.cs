@@ -11,5 +11,7 @@ namespace Stupide_Vautour
         void displayStack(Stack stack);
 
         void displayPlayer(KeyValuePair<Player, Card> couple);
+
+        void displayString(String s);
     }
 }

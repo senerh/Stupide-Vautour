@@ -72,6 +72,18 @@ namespace Stupide_Vautour
                 if (max.Value.number != 0)
                 {
                     max.Key.updateScore(stack.getCard().number);
+                    if (stack.isVulture())
+                    {
+                        display.displayString("Le joueur " + max.Key.getColor() + " reçoit le vautour " + stack.getCard().number + ".");
+                    }
+                    else
+                    {
+                        display.displayString("Le joueur " + max.Key.getColor() + " reçoit la souris " + stack.getCard().number + ".");
+                    }
+                }
+                else
+                {
+                    display.displayString("Egalité : personne ne reçoit la carte !");
                 }
             }
         }

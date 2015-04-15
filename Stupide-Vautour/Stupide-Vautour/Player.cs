@@ -12,7 +12,7 @@ namespace Stupide_Vautour
         public const int NB_CARD = 15;
 
         private int number;
-        private String name;
+        private String color;
         protected List<Card> listCard;
         private int score;
 
@@ -30,19 +30,19 @@ namespace Stupide_Vautour
             switch (number)
             {
                 case 1:
-                    name = "ROUGE";
+                    color = "bleu";
                     break;
                 case 2:
-                    name = "BLEU";
+                    color = "jaune";
                     break;
                 case 3:
-                    name = "VERT";
+                    color = "noir";
                     break;
                 case 4:
-                    name = "JAUNE";
+                    color = "rouge";
                     break;
                 default:
-                    name = "ORANGE";
+                    color = "vert";
                     break;
             }
         }
@@ -64,9 +64,14 @@ namespace Stupide_Vautour
             score += s;
         }
 
+        public String getColor()
+        {
+            return color;
+        }
+
         public override string ToString()
         {
-            return number+":"+name;
+            return number+":"+color;
         }
         public override bool Equals(Object obj)
         {

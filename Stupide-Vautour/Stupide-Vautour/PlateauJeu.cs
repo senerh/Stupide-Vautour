@@ -133,6 +133,12 @@ namespace Stupide_Vautour
             }
         }
 
+        public void displayString(String s)
+        {
+            lb_atoidejouer.Invoke((MethodInvoker)delegate { lb_atoidejouer.Text = s; });
+            lb_atoidejouer.ImageAlign = ContentAlignment.MiddleCenter;
+        }
+
         private void PlateauJeu_Closing(object sender, FormClosingEventArgs e)
         {
             play.Abort();
@@ -237,11 +243,6 @@ namespace Stupide_Vautour
         private void PileGauche_Click(object sender, EventArgs e)
         {
             throw new NotImplementedException();
-        }
-
-        private void TapisHumain_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
