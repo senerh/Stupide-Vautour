@@ -49,15 +49,21 @@ namespace Stupide_Vautour
             {
                 case 4:
                     TapisIA4.Visible = false;
+                    lbl_scoreIA4.Visible = false;
                     break;
                 case 3:
                     TapisIA3.Visible = false;
+                    lbl_scoreIA3.Visible = false;
                     TapisIA4.Visible = false;
+                    lbl_scoreIA4.Visible = false;
                     break;
                 case 2:
                     TapisIA2.Visible = false;
+                    lbl_scoreIA2.Visible = false;
                     TapisIA3.Visible = false;
+                    lbl_scoreIA3.Visible = false;
                     TapisIA4.Visible = false;
+                    lbl_scoreIA4.Visible = false;
                     break;
                 default:
                     break;
@@ -107,28 +113,30 @@ namespace Stupide_Vautour
             }
         }
 
-        public void displayPlayer(KeyValuePair<Player, Card> couple)
+        public void displayCard(Player player, Card card)
         {
             PictureBox carte;
-            switch(couple.Key.getID())
+            switch (player.getID())
             {
+                case 1://Humain
+                    break;
                 case 2://IA 1
                     carte = (PictureBox)TapisIA1.Controls[0];
-                    carte.Image = SabotIA1.Images[couple.Value.number - 1];
+                    carte.Image = SabotIA1.Images[card.number - 1];
                     break;
                 case 3://IA 2
                     carte = (PictureBox)TapisIA2.Controls[0];
-                    carte.Image = SabotIA2.Images[couple.Value.number - 1];
+                    carte.Image = SabotIA2.Images[card.number - 1];
                     break;
                 case 4://IA 3
                     carte = (PictureBox)TapisIA3.Controls[0];
-                    carte.Image = SabotIA3.Images[couple.Value.number - 1];
+                    carte.Image = SabotIA3.Images[card.number - 1];
                     break;
                 case 5://IA 4
                     carte = (PictureBox)TapisIA4.Controls[0];
-                    carte.Image = SabotIA4.Images[couple.Value.number - 1];
+                    carte.Image = SabotIA4.Images[card.number - 1];
                     break;
-                default://Humain
+                default:
                     break;
             }
         }
@@ -136,7 +144,30 @@ namespace Stupide_Vautour
         public void displayString(String s)
         {
             lb_atoidejouer.Invoke((MethodInvoker)delegate { lb_atoidejouer.Text = s; });
-            lb_atoidejouer.ImageAlign = ContentAlignment.MiddleCenter;
+        }
+
+        public void displayScore(Player player, int score)
+        {
+            switch (player.getID())
+            {
+                case 1://Humain
+                    lbl_scoreHumain.Invoke((MethodInvoker)delegate { lbl_scoreHumain.Text = "Score : " + score; });
+                    break;
+                case 2://IA 1
+                    lbl_scoreIA1.Invoke((MethodInvoker)delegate { lbl_scoreIA1.Text = "Score : " + score; });
+                    break;
+                case 3://IA 2
+                    lbl_scoreIA2.Invoke((MethodInvoker)delegate { lbl_scoreIA2.Text = "Score : " + score; });
+                    break;
+                case 4://IA 3
+                    lbl_scoreIA3.Invoke((MethodInvoker)delegate { lbl_scoreIA3.Text = "Score : " + score; });
+                    break;
+                case 5://IA 4
+                    lbl_scoreIA4.Invoke((MethodInvoker)delegate { lbl_scoreIA4.Text = "Score : " + score; });
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void PlateauJeu_Closing(object sender, FormClosingEventArgs e)
@@ -238,11 +269,6 @@ namespace Stupide_Vautour
         {
             human.selectCard(Convert.ToInt16(pictureBox15.Tag));
             pictureBox15.Visible = false;
-        }
-
-        private void PileGauche_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
         }
     }
 }

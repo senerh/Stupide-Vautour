@@ -10,8 +10,10 @@ namespace Stupide_Vautour
     {
         void displayStack(Stack stack);
 
-        void displayPlayer(KeyValuePair<Player, Card> couple);
+        void displayCard(Player player, Card card);
 
         void displayString(String s);
+
+        void displayScore(Player player, int score);
     }
 }

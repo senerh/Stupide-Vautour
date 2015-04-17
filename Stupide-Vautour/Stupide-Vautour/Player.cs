@@ -52,6 +52,11 @@ namespace Stupide_Vautour
             return number;
         }
 
+        public int getScore()
+        {
+            return score;
+        }
+
         public void updateScore(Card card)
         {
             score += card.getValue();
