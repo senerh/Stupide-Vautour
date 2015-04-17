@@ -2,33 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Stupide_Vautour
 {
     public class HumanPlayer : Player
     {
-        bool isSelected;
+        AutoResetEvent autoEvent;
         Card selectedCard;
         public HumanPlayer()
             : base()
         {
-            isSelected = false;
+            autoEvent = new AutoResetEvent(false);
         }
         public override Card play(Card stack, History history)
         {
-            while (!isSelected)
-            {
-                System.Threading.Thread.Sleep(100);
-            }
-            isSelected = false;
-            return base.listCard.Find(selectedCard.Equals);
+            autoEvent.WaitOne();
+            return selectedCard;
         }
 
         public void selectCard(int n)
         {
+            autoEvent.Set();
             selectedCard = new Card(n);
-            isSelected = true;
         }
     }
 }

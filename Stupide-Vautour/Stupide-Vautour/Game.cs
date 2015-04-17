@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Stupide_Vautour
@@ -14,6 +15,7 @@ namespace Stupide_Vautour
         History history;
         Dictionary<Player, Card> lastTurn;
         Display display;
+        AutoResetEvent autoEvent;
 
         public Game(List<Player> listPlayers, Display d)
         {
@@ -23,6 +25,7 @@ namespace Stupide_Vautour
             stack = new Stack();
             history = new History();
             lastTurn = new Dictionary<Player,Card>();
+            autoEvent = new AutoResetEvent(false);
         }
 
         public void play()
@@ -32,8 +35,10 @@ namespace Stupide_Vautour
             for (int round = 0; round < 15; round++)
             {
                 //affiche le score des joueurs
+                display.displayString("A vous de jouer !");
                 foreach (Player player in listPlayers)
                 {
+                    display.hideCard(player);
                     display.displayScore(player, player.getScore());
                 }
 
@@ -97,7 +102,14 @@ namespace Stupide_Vautour
                 {
                     display.displayString("Egalité : personne ne reçoit la carte !");
                 }
+
+                autoEvent.WaitOne();
             }
+        }
+
+        public void reveille()
+        {
+            autoEvent.Set();
         }
 
         public History getHistory()
