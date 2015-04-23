@@ -96,7 +96,9 @@ namespace Stupide_Vautour
             plateauJeu.Visible = true;
         }
 
-
-
+        public void enable()
+        {
+            this.Invoke((MethodInvoker)delegate { this.Visible = true; });
+        }
     }
 }

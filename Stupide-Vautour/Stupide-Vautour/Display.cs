@@ -17,5 +17,7 @@ namespace Stupide_Vautour
         void displayScore(Player player, int score);
 
         void hideCard(Player player);
+
+        void displayWinner(List<Player> listPlayer);
     }
 }

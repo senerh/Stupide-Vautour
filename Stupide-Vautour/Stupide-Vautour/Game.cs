@@ -76,26 +76,40 @@ namespace Stupide_Vautour
                 }
 
                 //cherche le joueur qui a joué la plus grande carte
-                KeyValuePair<Player, Card> max = lastTurn.ElementAt(0);
-                for (int i = 1; i < lastTurn.Count; i++)
+                KeyValuePair<Player, Card> cartPlayed = lastTurn.ElementAt(0);
+                if (stack.isMouse())
                 {
-                    if (max.Value.number < lastTurn.ElementAt(i).Value.number)
+                    for (int i = 1; i < lastTurn.Count; i++)
                     {
-                        max = lastTurn.ElementAt(i);
+                        if (cartPlayed.Value.number < lastTurn.ElementAt(i).Value.number)
+                        {
+                            cartPlayed = lastTurn.ElementAt(i);
+                        }
+                    }
+                }
+                //cherche le joueur qui a joué la plus petite carte
+                else
+                {
+                    for (int i = 1; i < lastTurn.Count; i++)
+                    {
+                        if (cartPlayed.Value.number > lastTurn.ElementAt(i).Value.number)
+                        {
+                            cartPlayed = lastTurn.ElementAt(i);
+                        }
                     }
                 }
 
-                //si les joueurs n'ont pas tous joué la même carte
-                if (max.Value.number != 0)
+                //s'il y a un gagnant ou un perdant
+                if (cartPlayed.Value.number != 0)
                 {
-                    max.Key.updateScore(stack.getCard());
+                    cartPlayed.Key.updateScore(stack.getCard());
                     if (stack.isVulture())
                     {
-                        display.displayString("Le joueur " + max.Key.getColor() + " reçoit le vautour " + stack.getCard().number + ".");
+                        display.displayString("Le joueur " + cartPlayed.Key.getColor() + " reçoit le vautour " + stack.getCard().number + ".");
                     }
                     else
                     {
-                        display.displayString("Le joueur " + max.Key.getColor() + " reçoit la souris " + stack.getCard().number + ".");
+                        display.displayString("Le joueur " + cartPlayed.Key.getColor() + " reçoit la souris " + stack.getCard().number + ".");
                     }
                 }
                 else//si les joueurs ont tous joué la même carte
@@ -105,9 +119,26 @@ namespace Stupide_Vautour
 
                 autoEvent.WaitOne();
             }
+            List<Player> listWinners;
+            listWinners = new List<Player>();
+            listWinners.Add(listPlayers.ElementAt(0));
+
+            for (int i = 1; i < listPlayers.Count; i++)
+            {
+                if (listPlayers.ElementAt(i).getScore() > listWinners.ElementAt(0).getScore())
+                {
+                    listWinners.Clear();
+                    listWinners.Add(listPlayers.ElementAt(i));
+                }
+                if (listPlayers.ElementAt(i).getScore() == listWinners.ElementAt(0).getScore())
+                {
+                    listWinners.Add(listPlayers.ElementAt(i));
+                }
+            }
+            display.displayWinner(listWinners);
         }
 
-        public void reveille()
+        public void wakeUp()
         {
             autoEvent.Set();
         }

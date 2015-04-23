@@ -198,6 +198,38 @@ namespace Stupide_Vautour
             }
         }
 
+        public void displayWinner(List<Player> listPlayer)
+        {
+            DialogResult result = new DialogResult();
+            if (listPlayer.Count == 1)
+            {
+                result = MessageBox.Show("Le joueur " + listPlayer.ElementAt(0).getColor() + " a gagné, Voulez vous rejouer ?", "Fin du game", MessageBoxButtons.YesNo);
+            }
+            else
+            {
+                String str = "Les joueurs " + listPlayer.ElementAt(0).getColor();
+                for (int i=1; i<listPlayer.Count - 1; i++)
+                {
+                    str=str+", "+listPlayer.ElementAt(i).getColor();
+                }
+                result = MessageBox.Show(str + " et " + listPlayer.Last().getColor() + " ont gagné, Voulez vous rejouer ?", "Fin du game", MessageBoxButtons.YesNo);
+            }
+
+            //play.Abort();
+
+            if (result == DialogResult.Yes)
+            {
+                playform.enable();
+               // this.Close();
+                this.Invoke((MethodInvoker)delegate { this.Visible= false; });
+            }
+            else if (result == DialogResult.No)
+            {
+                Application.Exit();
+            }
+           
+        }
+
         private void disableCards()
         {
             pictureBox1.Enabled = false;
@@ -356,7 +388,7 @@ namespace Stupide_Vautour
         private void PileGauche_Click(object sender, EventArgs e)
         {
             enableCards();
-            game.reveille();
+            game.wakeUp();
         }
     }
 }
