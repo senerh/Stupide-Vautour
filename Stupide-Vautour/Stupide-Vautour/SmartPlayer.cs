@@ -8,8 +8,8 @@ namespace Stupide_Vautour
 {
     public class SmartPlayer : Player
     {
-        public SmartPlayer()
-            : base()
+        public SmartPlayer(int numPlayer)
+            : base(numPlayer)
         {
 
         }

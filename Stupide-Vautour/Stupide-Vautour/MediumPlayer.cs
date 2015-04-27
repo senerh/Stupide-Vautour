@@ -8,8 +8,8 @@ namespace Stupide_Vautour
 {
     public class MediumPlayer : Player
     {
-        public MediumPlayer()
-            : base()
+        public MediumPlayer(int numPlayer)
+            : base(numPlayer)
         {
 
         }

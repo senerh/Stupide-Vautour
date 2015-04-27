@@ -24,22 +24,24 @@ namespace Stupide_Vautour
             this.playform = playform;
 
             List<Player> listPlayer = new List<Player>();
-            human = new HumanPlayer();
+            human = new HumanPlayer(1);
             listPlayer.Add(human);
+            int numPlayer = 2;
             foreach (String player in listPlayers)
             {
                 switch (player)
                 {
                     case "Facile":
-                        listPlayer.Add(new StupidPlayer());
+                        listPlayer.Add(new StupidPlayer(numPlayer));
                         break;
                     case "Moyen":
-                        listPlayer.Add(new MediumPlayer());
+                        listPlayer.Add(new MediumPlayer(numPlayer));
                         break;
                     default:
-                        listPlayer.Add(new SmartPlayer());
+                        listPlayer.Add(new SmartPlayer(numPlayer));
                         break;
                 }
+                numPlayer++;
             }
 
             game = new Game(listPlayer, this);
@@ -215,12 +217,9 @@ namespace Stupide_Vautour
                 result = MessageBox.Show(str + " et " + listPlayer.Last().getColor() + " ont gagné, Voulez vous rejouer ?", "Fin du game", MessageBoxButtons.YesNo);
             }
 
-            //play.Abort();
-
             if (result == DialogResult.Yes)
             {
                 playform.enable();
-               // this.Close();
                 this.Invoke((MethodInvoker)delegate { this.Visible= false; });
             }
             else if (result == DialogResult.No)

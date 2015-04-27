@@ -8,8 +8,8 @@ namespace Stupide_Vautour
 {
     public class StupidPlayer : Player
     {
-        public StupidPlayer()
-            : base()
+        public StupidPlayer(int numPlayer)
+            : base(numPlayer)
         {
 
         }

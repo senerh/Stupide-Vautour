@@ -11,8 +11,8 @@ namespace Stupide_Vautour
     {
         AutoResetEvent autoEvent;
         Card selectedCard;
-        public HumanPlayer()
-            : base()
+        public HumanPlayer(int numPlayer)
+            : base(numPlayer)
         {
             autoEvent = new AutoResetEvent(false);
         }
@@ -24,8 +24,8 @@ namespace Stupide_Vautour
 
         public void selectCard(int n)
         {
-            autoEvent.Set();
             selectedCard = new Card(n);
+            autoEvent.Set();
         }
     }
 }

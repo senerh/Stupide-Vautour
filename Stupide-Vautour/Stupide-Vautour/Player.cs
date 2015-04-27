@@ -8,7 +8,6 @@ namespace Stupide_Vautour
 {
     public abstract class Player
     {
-        private static int PlayerID = 0;
         public const int NB_CARD = 15;
 
         private int number;
@@ -16,10 +15,9 @@ namespace Stupide_Vautour
         protected List<Card> listCard;
         private int score;
 
-        public Player()
+        public Player(int numPlayer)
         {
-            PlayerID++;
-            number = PlayerID;
+            number = numPlayer;
             listCard = new List<Card>();
             for (int i = 0; i < NB_CARD; i++)
             {
