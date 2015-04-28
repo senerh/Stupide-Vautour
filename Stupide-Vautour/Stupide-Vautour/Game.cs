@@ -23,7 +23,7 @@ namespace Stupide_Vautour
             display = d;
             nbPlayers = listPlayers.Count;
             stack = new Stack();
-            history = new History();
+            history = new History(nbPlayers);
             lastTurn = new Dictionary<Player,Card>();
             autoEvent = new AutoResetEvent(false);
         }
@@ -46,13 +46,20 @@ namespace Stupide_Vautour
                 stack.nextCard();
                 display.displayStack(stack);
 
+                //Génere le tableau des cartes par puissance
+                history.sortTabPower();
+
                 //demande aux joueurs de jouer
                 lastTurn.Clear();
                 foreach (Player player in listPlayers)
                 {
                     Card currentCard = player.play(stack.getCard(), history);
                     lastTurn.Add(player, currentCard);
-                    history.add(player, currentCard);
+                }
+
+                foreach (KeyValuePair<Player, Card> entry in lastTurn)
+                {
+                    history.add(entry.Key, entry.Value);
                 }
 
                 //affiche les cartes jouées par tout le monde
