@@ -8,11 +8,10 @@ namespace Stupide_Vautour
 {
     public class MediumPlayer : Player
     {
-        Random random;
         public MediumPlayer(int numPlayer)
             : base(numPlayer)
         {
-            random = new Random();
+
         }
         public override Card play(Card stack, History history)
         {

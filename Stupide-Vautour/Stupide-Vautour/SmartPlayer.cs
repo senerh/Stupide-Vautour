@@ -8,12 +8,11 @@ namespace Stupide_Vautour
 {
     public class SmartPlayer : Player
     {
-        Random random;
         Card min, max;
         public SmartPlayer(int numPlayer)
             : base(numPlayer)
         {
-            random = new Random();
+
         }
         public override Card play(Card stack, History history)
         {

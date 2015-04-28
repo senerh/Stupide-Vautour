@@ -15,7 +15,7 @@ namespace Stupide_Vautour
         }
         public override Card play(Card stack, History history)
         {
-            int n = new Random().Next(listCard.Count);
+            int n = random.Next(listCard.Count);
             Card currentCard = listCard.ElementAt(n);
             base.listCard.RemoveAt(n);
             return currentCard;

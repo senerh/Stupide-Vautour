@@ -155,7 +155,7 @@ namespace Stupide_Vautour
                     listWinners.Clear();
                     listWinners.Add(listPlayers.ElementAt(i));
                 }
-                if (listPlayers.ElementAt(i).getScore() == listWinners.ElementAt(0).getScore())
+                else if (listPlayers.ElementAt(i).getScore() == listWinners.ElementAt(0).getScore())
                 {
                     listWinners.Add(listPlayers.ElementAt(i));
                 }

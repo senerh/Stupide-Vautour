@@ -9,6 +9,7 @@ namespace Stupide_Vautour
     public abstract class Player
     {
         public const int NB_CARD = 15;
+        protected static Random random = new Random();
 
         private int number;
         private String color;
