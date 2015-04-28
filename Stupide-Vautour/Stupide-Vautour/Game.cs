@@ -92,9 +92,19 @@ namespace Stupide_Vautour
                 {
                     for (int i = 1; i < lastTurn.Count; i++)
                     {
-                        if (cartPlayed.Value.number > lastTurn.ElementAt(i).Value.number && lastTurn.ElementAt(i).Value.number != 0)
+                        if (lastTurn.ElementAt(i).Value.number != 0)
                         {
-                            cartPlayed = lastTurn.ElementAt(i);
+                            if (cartPlayed.Value.number == 0)
+                            {
+                                cartPlayed = lastTurn.ElementAt(i);
+                            }
+                            else
+                            {
+                                if (cartPlayed.Value.number > lastTurn.ElementAt(i).Value.number && lastTurn.ElementAt(i).Value.number != 0)
+                                {
+                                    cartPlayed = lastTurn.ElementAt(i);
+                                }
+                            }
                         }
                     }
                 }
