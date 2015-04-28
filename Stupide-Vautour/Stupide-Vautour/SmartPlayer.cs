@@ -34,14 +34,40 @@ namespace Stupide_Vautour
 
             switch (stack.number)
             {
-                case -5: case -4: case 8: case 9: case 10:
-                    playedCard = listCards.ElementAt(random.Next(listCards.Count * 2 / 3, listCards.Count));
+                case -5:  case 9: case 10:
+                    if (min.number >= listCards.ElementAt(listCards.Count-1).number)
+                    { playedCard = listCard.ElementAt(0); }
+                    else
+                    {
+                        playedCard = listCards.ElementAt(random.Next(listCards.Count * 4 / 5, listCards.Count));
+                    }
                     break;
-                case -3: case -2: case 4: case 5: case 6: case 7:
-                    playedCard = listCards.ElementAt(random.Next(listCards.Count * 1 / 3, listCards.Count * 2 / 3));
+                case -4: case 7: case 8:
+                    if (min.number >= listCards.ElementAt(listCards.Count * 4 / 5).number)
+                    { playedCard = listCard.ElementAt(0); }
+                    else
+                    {
+                        playedCard = listCards.ElementAt(random.Next(listCards.Count * 3 / 5, listCards.Count * 4 / 5));
+                    }
                     break;
-                case -1: case 1: case 2: case 3:
-                    playedCard = listCards.ElementAt(random.Next(0, listCards.Count * 1 / 3));
+                case -3: case 5: case 6:
+                    if (min.number >= listCards.ElementAt(listCards.Count * 3 / 5).number)
+                    { playedCard = listCard.ElementAt(0); }
+                    else
+                    {
+                        playedCard = listCards.ElementAt(random.Next(listCards.Count * 2 / 5, listCards.Count * 3 / 5));
+                    }
+                    break;
+                case -2: case 3: case 4:
+                    if (min.number >= listCards.ElementAt(listCards.Count * 2 / 5).number)
+                    { playedCard = listCard.ElementAt(0); }
+                    else
+                    {
+                        playedCard = listCards.ElementAt(random.Next(listCards.Count * 1 / 5, listCards.Count * 2 / 5));
+                    }
+                    break;
+                case -1: case 1: case 2:
+                    playedCard = listCards.ElementAt(random.Next(0, listCards.Count * 1 / 5));
                     break;
                 default:
                     playedCard = null;
@@ -87,7 +113,7 @@ namespace Stupide_Vautour
             {
                 case -5: case -4: case 8: case 9: case 10:
                     min = listCards.ElementAt(listCards.Count * 2 / 3);
-                    max = listCards.ElementAt(listCards.Count);
+                    max = listCards.ElementAt(listCards.Count-1);
                     break;
                 case -3: case -2: case 4: case 5: case 6: case 7:
                     min = listCards.ElementAt(listCards.Count * 1 / 3);
