@@ -103,21 +103,21 @@
             this.SabotPile.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("SabotPile.ImageStream")));
             this.SabotPile.TransparentColor = System.Drawing.Color.Transparent;
             this.SabotPile.Images.SetKeyName(0, "face.png");
-            this.SabotPile.Images.SetKeyName(1, "-1.png");
-            this.SabotPile.Images.SetKeyName(2, "-2.png");
-            this.SabotPile.Images.SetKeyName(3, "-3.png");
-            this.SabotPile.Images.SetKeyName(4, "-4.png");
-            this.SabotPile.Images.SetKeyName(5, "-5.png");
-            this.SabotPile.Images.SetKeyName(6, "+1.png");
-            this.SabotPile.Images.SetKeyName(7, "+2.png");
-            this.SabotPile.Images.SetKeyName(8, "+3.png");
-            this.SabotPile.Images.SetKeyName(9, "+4.png");
-            this.SabotPile.Images.SetKeyName(10, "+5.png");
-            this.SabotPile.Images.SetKeyName(11, "+6.png");
-            this.SabotPile.Images.SetKeyName(12, "+7.png");
-            this.SabotPile.Images.SetKeyName(13, "+8.png");
-            this.SabotPile.Images.SetKeyName(14, "+9.png");
-            this.SabotPile.Images.SetKeyName(15, "+10.png");
+            this.SabotPile.Images.SetKeyName(1, "+1.png");
+            this.SabotPile.Images.SetKeyName(2, "+2.png");
+            this.SabotPile.Images.SetKeyName(3, "+3.png");
+            this.SabotPile.Images.SetKeyName(4, "+4.png");
+            this.SabotPile.Images.SetKeyName(5, "+5.png");
+            this.SabotPile.Images.SetKeyName(6, "+6.png");
+            this.SabotPile.Images.SetKeyName(7, "+7.png");
+            this.SabotPile.Images.SetKeyName(8, "+8.png");
+            this.SabotPile.Images.SetKeyName(9, "+9.png");
+            this.SabotPile.Images.SetKeyName(10, "+10.png");
+            this.SabotPile.Images.SetKeyName(11, "-1.png");
+            this.SabotPile.Images.SetKeyName(12, "-2.png");
+            this.SabotPile.Images.SetKeyName(13, "-3.png");
+            this.SabotPile.Images.SetKeyName(14, "-4.png");
+            this.SabotPile.Images.SetKeyName(15, "-5.png");
             // 
             // SabotHumain
             // 
