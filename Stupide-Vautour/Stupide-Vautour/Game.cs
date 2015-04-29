@@ -23,7 +23,7 @@ namespace Stupide_Vautour
             display = d;
             nbPlayers = listPlayers.Count;
             stack = new Stack();
-            history = new History(nbPlayers);
+            history = new History(listPlayers);
             lastTurn = new Dictionary<Player,Card>();
             autoEvent = new AutoResetEvent(false);
         }

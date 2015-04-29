@@ -17,10 +17,11 @@ namespace Stupide_Vautour
         private Dictionary<int, int> dictionaryPower;//Key = card.number, value = power
         List<KeyValuePair<int, int>> listPower;
 
-        public History(int nbPlayers)
+        public History(List<Player> listPlayers)
         {
+            this.nbPlayers = listPlayers.Count;
             history = new Dictionary<Player, List<Card>>();
-            listPlayer = new List<Player>();
+            this.listPlayer = listPlayers;
             tabOccurrence = new int[15,2];
             for (int i=0; i<15; i++)
             {
@@ -32,7 +33,16 @@ namespace Stupide_Vautour
             {
                 dictionaryPower.Add(i+1, tabOccurrence[i, POWER]);
             }
-            this.nbPlayers = nbPlayers;
+
+            foreach(Player p in listPlayers)
+            {
+                List<Card> l = new List<Card>();
+                for (int i = 0; i < 15; i++)
+                {
+                    l.Add(new Card(i+1));
+                }
+                history.Add(p, l);
+            }
         }
 
         public void add(Player player, Card card)
