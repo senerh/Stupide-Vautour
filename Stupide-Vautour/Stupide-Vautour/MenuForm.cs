@@ -18,6 +18,8 @@ namespace Stupide_Vautour
         {
             InitializeComponent();
             playform = new PlayForm(this);
+            button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
         }
 
         private void Menu_Load(object sender, EventArgs e)

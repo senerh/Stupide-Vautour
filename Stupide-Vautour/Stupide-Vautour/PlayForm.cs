@@ -15,8 +15,9 @@ namespace Stupide_Vautour
         {
             InitializeComponent();
             this.menuform = menuform;
+            button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
         }
-
         private void PlayForm_Load(object sender, EventArgs e)
         {
             cb_nbPlayer.SelectedItem = "2";

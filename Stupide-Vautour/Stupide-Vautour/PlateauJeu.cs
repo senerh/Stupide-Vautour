@@ -181,19 +181,19 @@ namespace Stupide_Vautour
                     break;
                 case 2://IA 1
                     carte = (PictureBox)TapisIA1.Controls[0];
-                    carte.Image = SabotPile.Images[0];
+                    carte.Image = SabotIA1.Images[15];
                     break;
                 case 3://IA 2
                     carte = (PictureBox)TapisIA2.Controls[0];
-                    carte.Image = SabotPile.Images[0];
+                    carte.Image = SabotIA1.Images[15];
                     break;
                 case 4://IA 3
                     carte = (PictureBox)TapisIA3.Controls[0];
-                    carte.Image = SabotPile.Images[0];
+                    carte.Image = SabotIA1.Images[15];
                     break;
                 case 5://IA 4
                     carte = (PictureBox)TapisIA4.Controls[0];
-                    carte.Image = SabotPile.Images[0];
+                    carte.Image = SabotIA1.Images[15];
                     break;
                 default:
                     break;
