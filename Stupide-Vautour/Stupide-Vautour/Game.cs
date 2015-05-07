@@ -92,7 +92,7 @@ namespace Stupide_Vautour
                 {
                     for (int i = 1; i < lastTurn.Count; i++)
                     {
-                        if (cartPlayed.Value.number > lastTurn.ElementAt(i).Value.number)
+                        if (cartPlayed.Value.number > lastTurn.ElementAt(i).Value.number && lastTurn.ElementAt(i).Value.number != 0)
                         {
                             cartPlayed = lastTurn.ElementAt(i);
                         }
@@ -119,6 +119,14 @@ namespace Stupide_Vautour
 
                 autoEvent.WaitOne();
             }
+
+            //Affiche les scores finaux
+            foreach (Player player in listPlayers)
+            {
+                display.hideCard(player);
+                display.displayScore(player, player.getScore());
+            }
+
             List<Player> listWinners;
             listWinners = new List<Player>();
             listWinners.Add(listPlayers.ElementAt(0));

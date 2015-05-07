@@ -224,7 +224,7 @@ namespace Stupide_Vautour
             }
             else if (result == DialogResult.No)
             {
-                Application.Exit();
+                Environment.Exit(1);
             }
            
         }
