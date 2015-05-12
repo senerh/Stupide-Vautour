@@ -57,6 +57,15 @@ namespace Stupide_Vautour
                     {
                         playedCard = listCard.ElementAt(0);
                     }
+                    else if (max.number < listCards.ElementAt(listCards.Count * 4 / 5).number)
+                    {
+                        int i = 0;
+                        while (listCards.Count * 4 / 5 - i >= 0 && max.number < listCards.ElementAt(listCards.Count * 4 / 5 - i).number)
+                        {
+                            i++;
+                        }
+                        playedCard = listCards.ElementAt(listCards.Count * 4 / 5 - i + 1);
+                    }
                     else
                     {
                         playedCard = listCards.ElementAt(random.Next(listCards.Count * 3 / 5, listCards.Count * 4 / 5));

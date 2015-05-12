@@ -26,7 +26,7 @@ namespace Stupide_Vautour
             for (int i=0; i<15; i++)
             {
                 tabOccurrence[i, OCCURRENCE] = 0;
-                tabOccurrence[i, POWER] = (i + 1) * nbPlayers;
+                tabOccurrence[i, POWER] = (i + 1);
             }
             dictionaryPower = new Dictionary<int, int>();
             for (int i=0; i<15; i++)
@@ -66,7 +66,7 @@ namespace Stupide_Vautour
             }
 
             tabOccurrence[card.number - 1, OCCURRENCE]++;
-            tabOccurrence[card.number - 1, POWER] = card.number * (nbPlayers - tabOccurrence[card.number - 1, OCCURRENCE]);
+            tabOccurrence[card.number - 1, POWER] = card.number * (tabOccurrence[card.number - 1, OCCURRENCE] + 1);
 
             dictionaryPower[card.number] = tabOccurrence[card.number - 1, POWER];
         }
